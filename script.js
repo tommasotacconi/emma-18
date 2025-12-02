@@ -29,3 +29,9 @@ for (let i = 1; i <= 18; i++) {
     console.log(400 * i ** (1 / 2));
 }
 greetsSec.innerHTML += happyBdayClassEl; 
+
+
+// Copyright update
+const currentYear = new Date().getFullYear();
+const crYear = document.getElementsByClassName('cr-year')[0];
+crYear.innerText = currentYear;

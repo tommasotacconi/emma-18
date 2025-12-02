@@ -15,6 +15,18 @@ body {
 		overflow: hidden;
 }
 
+footer {
+	width: 100%;
+
+	color: white;
+	text-align: center;
+	position: fixed;
+	bottom: 10px;
+	left: 0;
+	right: 0;
+	font-family: 'Fredoka One';
+}
+
 // Utility
 .cell {
 	width: 100%;
@@ -125,6 +137,10 @@ body {
 }
 
 @media (max-width: 500px) {
+	footer {
+		font-size: .8rem;
+	}
+	
 	.happy-birthday {
 		@for $i from 0 to 24 {
 			&:nth-child(#{$i + 1}) {
