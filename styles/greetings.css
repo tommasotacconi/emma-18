@@ -1,0 +1,381 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  height: 100vh;
+  display: grid;
+  grid-template: repeat(15, 1fr)/repeat(15, 1fr);
+  overflow: hidden;
+}
+
+.cell {
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.cell:nth-child(15n+1):hover ~ #greetings {
+  --positionX: 0;
+}
+
+.cell:nth-child(n+1):nth-child(-n+15):hover ~ #greetings {
+  --positionY: 0;
+}
+
+.cell:nth-child(15n+2):hover ~ #greetings {
+  --positionX: 1;
+}
+
+.cell:nth-child(n+16):nth-child(-n+30):hover ~ #greetings {
+  --positionY: 1;
+}
+
+.cell:nth-child(15n+3):hover ~ #greetings {
+  --positionX: 2;
+}
+
+.cell:nth-child(n+31):nth-child(-n+45):hover ~ #greetings {
+  --positionY: 2;
+}
+
+.cell:nth-child(15n+4):hover ~ #greetings {
+  --positionX: 3;
+}
+
+.cell:nth-child(n+46):nth-child(-n+60):hover ~ #greetings {
+  --positionY: 3;
+}
+
+.cell:nth-child(15n+5):hover ~ #greetings {
+  --positionX: 4;
+}
+
+.cell:nth-child(n+61):nth-child(-n+75):hover ~ #greetings {
+  --positionY: 4;
+}
+
+.cell:nth-child(15n+6):hover ~ #greetings {
+  --positionX: 5;
+}
+
+.cell:nth-child(n+76):nth-child(-n+90):hover ~ #greetings {
+  --positionY: 5;
+}
+
+.cell:nth-child(15n+7):hover ~ #greetings {
+  --positionX: 6;
+}
+
+.cell:nth-child(n+91):nth-child(-n+105):hover ~ #greetings {
+  --positionY: 6;
+}
+
+.cell:nth-child(15n+8):hover ~ #greetings {
+  --positionX: 7;
+}
+
+.cell:nth-child(n+106):nth-child(-n+120):hover ~ #greetings {
+  --positionY: 7;
+}
+
+.cell:nth-child(15n+9):hover ~ #greetings {
+  --positionX: 8;
+}
+
+.cell:nth-child(n+121):nth-child(-n+135):hover ~ #greetings {
+  --positionY: 8;
+}
+
+.cell:nth-child(15n+10):hover ~ #greetings {
+  --positionX: 9;
+}
+
+.cell:nth-child(n+136):nth-child(-n+150):hover ~ #greetings {
+  --positionY: 9;
+}
+
+.cell:nth-child(15n+11):hover ~ #greetings {
+  --positionX: 10;
+}
+
+.cell:nth-child(n+151):nth-child(-n+165):hover ~ #greetings {
+  --positionY: 10;
+}
+
+.cell:nth-child(15n+12):hover ~ #greetings {
+  --positionX: 11;
+}
+
+.cell:nth-child(n+166):nth-child(-n+180):hover ~ #greetings {
+  --positionY: 11;
+}
+
+.cell:nth-child(15n+13):hover ~ #greetings {
+  --positionX: 12;
+}
+
+.cell:nth-child(n+181):nth-child(-n+195):hover ~ #greetings {
+  --positionY: 12;
+}
+
+.cell:nth-child(15n+14):hover ~ #greetings {
+  --positionX: 13;
+}
+
+.cell:nth-child(n+196):nth-child(-n+210):hover ~ #greetings {
+  --positionY: 13;
+}
+
+.cell:nth-child(15n+15):hover ~ #greetings {
+  --positionX: 14;
+}
+
+.cell:nth-child(n+211):nth-child(-n+225):hover ~ #greetings {
+  --positionY: 14;
+}
+
+#greetings {
+  color: white;
+  --positionX: 7;
+  --positionY: 7;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.happy-birthday {
+  font-family: "Fredoka One", cursive;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  animation: color 3s infinite linear;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.6666666667);
+  transition: all 0.5s;
+}
+.happy-birthday:nth-child(1) {
+  font-size: 100px;
+  animation-delay: 0s;
+  opacity: 0.2;
+  transform: translateX(calc(-50% - (var(--positionX) - 7) * 70px)) translateY(calc(-50% - (var(--positionY) - 7) * 70px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
+}
+.happy-birthday:nth-child(2) {
+  font-size: 110px;
+  animation-delay: -0.3s;
+  opacity: 0.25;
+  transform: translateX(calc(-50% - (var(--positionX) - 7) * 60px)) translateY(calc(-50% - (var(--positionY) - 7) * 60px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
+}
+.happy-birthday:nth-child(3) {
+  font-size: 120px;
+  animation-delay: -0.6s;
+  opacity: 0.3;
+  transform: translateX(calc(-50% - (var(--positionX) - 7) * 50px)) translateY(calc(-50% - (var(--positionY) - 7) * 50px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
+}
+.happy-birthday:nth-child(4) {
+  font-size: 130px;
+  animation-delay: -0.9s;
+  opacity: 0.35;
+  transform: translateX(calc(-50% - (var(--positionX) - 7) * 40px)) translateY(calc(-50% - (var(--positionY) - 7) * 40px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
+}
+.happy-birthday:nth-child(5) {
+  font-size: 140px;
+  animation-delay: -1.2s;
+  opacity: 0.4;
+  transform: translateX(calc(-50% - (var(--positionX) - 7) * 30px)) translateY(calc(-50% - (var(--positionY) - 7) * 30px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
+}
+.happy-birthday:nth-child(6) {
+  font-size: 150px;
+  animation-delay: -1.5s;
+  opacity: 0.45;
+  transform: translateX(calc(-50% - (var(--positionX) - 7) * 20px)) translateY(calc(-50% - (var(--positionY) - 7) * 20px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
+}
+.happy-birthday:nth-child(7) {
+  font-size: 160px;
+  animation-delay: -1.8s;
+  opacity: 0.5;
+  transform: translateX(calc(-50% - (var(--positionX) - 7) * 10px)) translateY(calc(-50% - (var(--positionY) - 7) * 10px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
+}
+.happy-birthday:nth-child(8) {
+  font-size: 170px;
+  animation-delay: -2.1s;
+  opacity: 0.55;
+  transform: translateX(calc(-50% - (var(--positionX) - 7) * 0px)) translateY(calc(-50% - (var(--positionY) - 7) * 0px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
+}
+.happy-birthday:nth-child(9) {
+  font-size: 180px;
+  animation-delay: -2.4s;
+  opacity: 0.6;
+  transform: translateX(calc(-50% - (var(--positionX) - 7) * -10px)) translateY(calc(-50% - (var(--positionY) - 7) * -10px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
+}
+.happy-birthday:nth-child(10) {
+  font-size: 190px;
+  animation-delay: -2.7s;
+  opacity: 0.65;
+  transform: translateX(calc(-50% - (var(--positionX) - 7) * -20px)) translateY(calc(-50% - (var(--positionY) - 7) * -20px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
+}
+.happy-birthday:nth-child(11) {
+  font-size: 200px;
+  animation-delay: -3s;
+  opacity: 0.7;
+  transform: translateX(calc(-50% - (var(--positionX) - 7) * -30px)) translateY(calc(-50% - (var(--positionY) - 7) * -30px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
+}
+.happy-birthday:nth-child(12) {
+  font-size: 210px;
+  animation-delay: -3.3s;
+  opacity: 0.75;
+  transform: translateX(calc(-50% - (var(--positionX) - 7) * -40px)) translateY(calc(-50% - (var(--positionY) - 7) * -40px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
+}
+.happy-birthday:nth-child(13) {
+  font-size: 220px;
+  animation-delay: -3.6s;
+  opacity: 0.8;
+  transform: translateX(calc(-50% - (var(--positionX) - 7) * -50px)) translateY(calc(-50% - (var(--positionY) - 7) * -50px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
+}
+.happy-birthday:nth-child(14) {
+  font-size: 230px;
+  animation-delay: -3.9s;
+  opacity: 0.85;
+  transform: translateX(calc(-50% - (var(--positionX) - 7) * -60px)) translateY(calc(-50% - (var(--positionY) - 7) * -60px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
+}
+.happy-birthday:nth-child(15) {
+  font-size: 240px;
+  animation-delay: -4.2s;
+  opacity: 0.9;
+  transform: translateX(calc(-50% - (var(--positionX) - 7) * -70px)) translateY(calc(-50% - (var(--positionY) - 7) * -70px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
+}
+.happy-birthday:nth-child(16) {
+  font-size: 250px;
+  animation-delay: -4.5s;
+  opacity: 0.95;
+  transform: translateX(calc(-50% - (var(--positionX) - 7) * -80px)) translateY(calc(-50% - (var(--positionY) - 7) * -80px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
+}
+.happy-birthday:nth-child(17) {
+  font-size: 260px;
+  animation-delay: -4.8s;
+  opacity: 1;
+  transform: translateX(calc(-50% - (var(--positionX) - 7) * -90px)) translateY(calc(-50% - (var(--positionY) - 7) * -90px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
+}
+.happy-birthday:nth-child(18) {
+  font-size: 270px;
+  animation-delay: -5.1s;
+  opacity: 1.05;
+  transform: translateX(calc(-50% - (var(--positionX) - 7) * -100px)) translateY(calc(-50% - (var(--positionY) - 7) * -100px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
+}
+.happy-birthday:nth-child(19) {
+  font-size: 280px;
+  animation-delay: -5.4s;
+  opacity: 1.1;
+  transform: translateX(calc(-50% - (var(--positionX) - 7) * -110px)) translateY(calc(-50% - (var(--positionY) - 7) * -110px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
+}
+.happy-birthday:nth-child(20) {
+  font-size: 290px;
+  animation-delay: -5.7s;
+  opacity: 1.15;
+  transform: translateX(calc(-50% - (var(--positionX) - 7) * -120px)) translateY(calc(-50% - (var(--positionY) - 7) * -120px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
+}
+.happy-birthday:nth-child(21) {
+  font-size: 300px;
+  animation-delay: -6s;
+  opacity: 1.2;
+  transform: translateX(calc(-50% - (var(--positionX) - 7) * -130px)) translateY(calc(-50% - (var(--positionY) - 7) * -130px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
+}
+.happy-birthday:nth-child(22) {
+  font-size: 310px;
+  animation-delay: -6.3s;
+  opacity: 1.25;
+  transform: translateX(calc(-50% - (var(--positionX) - 7) * -140px)) translateY(calc(-50% - (var(--positionY) - 7) * -140px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
+}
+.happy-birthday:nth-child(23) {
+  font-size: 320px;
+  animation-delay: -6.6s;
+  opacity: 1.3;
+  transform: translateX(calc(-50% - (var(--positionX) - 7) * -150px)) translateY(calc(-50% - (var(--positionY) - 7) * -150px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
+}
+.happy-birthday:nth-child(24) {
+  font-size: 330px;
+  animation-delay: -6.9s;
+  opacity: 1.35;
+  transform: translateX(calc(-50% - (var(--positionX) - 7) * -160px)) translateY(calc(-50% - (var(--positionY) - 7) * -160px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
+}
+.happy-birthday.box-18 {
+  width: 400px;
+  aspect-ratio: 1;
+  display: grid;
+  place-content: center;
+  color: white;
+  text-shadow: 0 1px 0 #000;
+  --border-angle: 0turn;
+  --main-bg: conic-gradient(
+  		from var(--border-angle),
+  		#213,
+  		rgba(17, 17, 34, 0.386) 5%,
+  		rgba(17, 17, 34, 0.233) 60%,
+  		rgba(34, 17, 51, 0.189) 95%
+  	);
+  border: solid 5px transparent;
+  border-radius: 2em;
+  --gradient-border: conic-gradient(from var(--border-angle), transparent 25%, #08f, #f03 99%, transparent);
+  background: var(--main-bg) padding-box, var(--gradient-border) border-box;
+  background-position: center center;
+  animation: bg-spin 3s linear infinite;
+}
+@keyframes bg-spin {
+  to {
+    --border-angle: 1turn;
+  }
+}
+.happy-birthday.box-18:hover {
+  animation-play-state: paused;
+}
+@keyframes color {
+  0% {
+    color: hsl(0, 35%, 35%);
+  }
+  10% {
+    color: hsl(36, 35%, 35%);
+  }
+  20% {
+    color: hsl(72, 35%, 35%);
+  }
+  30% {
+    color: hsl(108, 35%, 35%);
+  }
+  40% {
+    color: hsl(144, 35%, 35%);
+  }
+  50% {
+    color: hsl(180, 35%, 35%);
+  }
+  60% {
+    color: hsl(216, 35%, 35%);
+  }
+  70% {
+    color: hsl(252, 35%, 35%);
+  }
+  80% {
+    color: hsl(288, 35%, 35%);
+  }
+  90% {
+    color: hsl(324, 35%, 35%);
+  }
+  100% {
+    color: hsl(0, 35%, 35%);
+  }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
+}
+
+/*# sourceMappingURL=greetings.css.map */
