@@ -377,5 +377,82 @@ body {
   inherits: true;
   initial-value: 0turn;
 }
+@media (max-width: 500px) {
+  .happy-birthday:nth-child(1) {
+    font-size: 20px;
+  }
+  .happy-birthday:nth-child(2) {
+    font-size: 22px;
+  }
+  .happy-birthday:nth-child(3) {
+    font-size: 24px;
+  }
+  .happy-birthday:nth-child(4) {
+    font-size: 26px;
+  }
+  .happy-birthday:nth-child(5) {
+    font-size: 28px;
+  }
+  .happy-birthday:nth-child(6) {
+    font-size: 30px;
+  }
+  .happy-birthday:nth-child(7) {
+    font-size: 32px;
+  }
+  .happy-birthday:nth-child(8) {
+    font-size: 34px;
+  }
+  .happy-birthday:nth-child(9) {
+    font-size: 36px;
+  }
+  .happy-birthday:nth-child(10) {
+    font-size: 38px;
+  }
+  .happy-birthday:nth-child(11) {
+    font-size: 40px;
+  }
+  .happy-birthday:nth-child(12) {
+    font-size: 42px;
+  }
+  .happy-birthday:nth-child(13) {
+    font-size: 44px;
+  }
+  .happy-birthday:nth-child(14) {
+    font-size: 46px;
+  }
+  .happy-birthday:nth-child(15) {
+    font-size: 48px;
+  }
+  .happy-birthday:nth-child(16) {
+    font-size: 50px;
+  }
+  .happy-birthday:nth-child(17) {
+    font-size: 52px;
+  }
+  .happy-birthday:nth-child(18) {
+    font-size: 54px;
+  }
+  .happy-birthday:nth-child(19) {
+    font-size: 56px;
+  }
+  .happy-birthday:nth-child(20) {
+    font-size: 58px;
+  }
+  .happy-birthday:nth-child(21) {
+    font-size: 60px;
+  }
+  .happy-birthday:nth-child(22) {
+    font-size: 62px;
+  }
+  .happy-birthday:nth-child(23) {
+    font-size: 64px;
+  }
+  .happy-birthday:nth-child(24) {
+    font-size: 66px;
+  }
+  .happy-birthday.box-18 {
+    width: 150px;
+  }
+}
 
 /*# sourceMappingURL=greetings.css.map */

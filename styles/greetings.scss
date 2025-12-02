@@ -123,3 +123,17 @@ body {
 	inherits: true;
 	initial-value: 0turn;
 }
+
+@media (max-width: 500px) {
+	.happy-birthday {
+		@for $i from 0 to 24 {
+			&:nth-child(#{$i + 1}) {
+				font-size: #{20 + $i * 2}px;
+			}
+		}
+
+		&.box-18 {
+			width: 150px;
+		}
+	}
+}
