@@ -1,7 +1,7 @@
 const body = document.body;
-// Prepare cell for mapping mouse position
+// Prepare cells for mapping mouse position
 const bodyInHTML = body.innerHTML;
-const compDocumentSt = document.documentElement;
+const documentEl = document.documentElement;
 body.innerHTML = '';
 
 for (let i = 0; i < 250; i++) {
@@ -11,6 +11,9 @@ for (let i = 0; i < 250; i++) {
     else body.innerHTML += cellEl + bodyInHTML;
 }
 
+/* Add age in front of '.greetings' text and a series of birthday person's names
+as long as the age. This is sequential, hence create steps where you increment
+age count and add a name  */  
 const greetsSec = document.getElementById('greetings');
 const greetsSecInHTML = greetsSec.innerHTML;
 let agePart = 0;
@@ -23,35 +26,38 @@ const getHappyBdayClassEl = (text, addedClasses = '') => {
     return divEl;
 };
 
+// Insert age count
+let happyBdayClassEl = getHappyBdayClassEl(textPart, 'box-18');
+greetsSec.innerHTML += happyBdayClassEl.outerHTML;
+
 for (let i = 1; i <= 18; i++) {
     setTimeout(() => {
+        // Insert name and update age
         textPart = 'Emma!!!';
         happyBdayClassEl = getHappyBdayClassEl(textPart);
         lastChildInGreets = greetsSec.lastChild;
         lastChildInGreets.innerText = ++agePart;
         greetsSec.insertBefore(happyBdayClassEl, lastChildInGreets);
+        // Start a faster animation for age box background animation
+        // and after completion remove background and show pseudo-element
+        // for lighter and slower animation (border only animation) 
         if (i === 18) {
-            const { style: lastChildSt, classList } = lastChildInGreets;
+            const { classList } = lastChildInGreets;
             let animationTime = 0.4;
-            compDocumentSt.style.setProperty('--animation-time', animationTime + 's');
+            documentEl.style.setProperty('--animation-time', animationTime + 's');
             setTimeout(() => {
                 classList.add('no-gradient-border');
                 setTimeout(() => {
                     classList.add('onbefore-gradient-border')
                     animationTime = 15;
-                    compDocumentSt.style.setProperty('--animation-time', animationTime + 's');
+                    documentEl.style.setProperty('--animation-time', animationTime + 's');
                 }, 4000);
-                // lastChildSt.animationDuration = '30s';
             }, 8000);
         } 
-            
     }, 10000 * i ** (1 / 4));
 }
-let happyBdayClassEl = getHappyBdayClassEl(textPart, 'box-18');
-greetsSec.innerHTML += happyBdayClassEl.outerHTML; 
 
-
-// Copyright update
+// Copyright date update
 const currentYear = new Date().getFullYear();
 const crYear = document.getElementsByClassName('cr-year')[0];
 crYear.innerText = currentYear;
