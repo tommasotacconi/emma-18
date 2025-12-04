@@ -1,7 +1,9 @@
+/* Retrieve DOM elementS */
 const body = document.body;
-// Prepare cells for mapping mouse position
 const bodyInHTML = body.innerHTML;
 const documentEl = document.documentElement;
+
+/* Prepare cells for mapping mouse position */
 body.innerHTML = '';
 
 for (let i = 0; i < 250; i++) {
