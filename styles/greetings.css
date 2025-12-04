@@ -174,170 +174,186 @@ footer {
   transition: all 0.5s;
 }
 .happy-birthday:nth-child(1) {
-  font-size: 100px;
+  font-size: 40px;
   animation-delay: 0s;
   opacity: 0.2;
   transform: translateX(calc(-50% - (var(--positionX) - 7) * 70px)) translateY(calc(-50% - (var(--positionY) - 7) * 70px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
 }
 .happy-birthday:nth-child(2) {
-  font-size: 110px;
+  font-size: 48px;
   animation-delay: -0.3s;
   opacity: 0.25;
   transform: translateX(calc(-50% - (var(--positionX) - 7) * 60px)) translateY(calc(-50% - (var(--positionY) - 7) * 60px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
 }
 .happy-birthday:nth-child(3) {
-  font-size: 120px;
+  font-size: 56px;
   animation-delay: -0.6s;
   opacity: 0.3;
   transform: translateX(calc(-50% - (var(--positionX) - 7) * 50px)) translateY(calc(-50% - (var(--positionY) - 7) * 50px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
 }
 .happy-birthday:nth-child(4) {
-  font-size: 130px;
+  font-size: 64px;
   animation-delay: -0.9s;
   opacity: 0.35;
   transform: translateX(calc(-50% - (var(--positionX) - 7) * 40px)) translateY(calc(-50% - (var(--positionY) - 7) * 40px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
 }
 .happy-birthday:nth-child(5) {
-  font-size: 140px;
+  font-size: 72px;
   animation-delay: -1.2s;
   opacity: 0.4;
   transform: translateX(calc(-50% - (var(--positionX) - 7) * 30px)) translateY(calc(-50% - (var(--positionY) - 7) * 30px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
 }
 .happy-birthday:nth-child(6) {
-  font-size: 150px;
+  font-size: 80px;
   animation-delay: -1.5s;
   opacity: 0.45;
   transform: translateX(calc(-50% - (var(--positionX) - 7) * 20px)) translateY(calc(-50% - (var(--positionY) - 7) * 20px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
 }
 .happy-birthday:nth-child(7) {
-  font-size: 160px;
+  font-size: 88px;
   animation-delay: -1.8s;
   opacity: 0.5;
   transform: translateX(calc(-50% - (var(--positionX) - 7) * 10px)) translateY(calc(-50% - (var(--positionY) - 7) * 10px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
 }
 .happy-birthday:nth-child(8) {
-  font-size: 170px;
+  font-size: 96px;
   animation-delay: -2.1s;
   opacity: 0.55;
   transform: translateX(calc(-50% - (var(--positionX) - 7) * 0px)) translateY(calc(-50% - (var(--positionY) - 7) * 0px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
 }
 .happy-birthday:nth-child(9) {
-  font-size: 180px;
+  font-size: 104px;
   animation-delay: -2.4s;
   opacity: 0.6;
   transform: translateX(calc(-50% - (var(--positionX) - 7) * -10px)) translateY(calc(-50% - (var(--positionY) - 7) * -10px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
 }
 .happy-birthday:nth-child(10) {
-  font-size: 190px;
+  font-size: 112px;
   animation-delay: -2.7s;
   opacity: 0.65;
   transform: translateX(calc(-50% - (var(--positionX) - 7) * -20px)) translateY(calc(-50% - (var(--positionY) - 7) * -20px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
 }
 .happy-birthday:nth-child(11) {
-  font-size: 200px;
+  font-size: 120px;
   animation-delay: -3s;
   opacity: 0.7;
   transform: translateX(calc(-50% - (var(--positionX) - 7) * -30px)) translateY(calc(-50% - (var(--positionY) - 7) * -30px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
 }
 .happy-birthday:nth-child(12) {
-  font-size: 210px;
+  font-size: 128px;
   animation-delay: -3.3s;
   opacity: 0.75;
   transform: translateX(calc(-50% - (var(--positionX) - 7) * -40px)) translateY(calc(-50% - (var(--positionY) - 7) * -40px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
 }
 .happy-birthday:nth-child(13) {
-  font-size: 220px;
+  font-size: 136px;
   animation-delay: -3.6s;
   opacity: 0.8;
   transform: translateX(calc(-50% - (var(--positionX) - 7) * -50px)) translateY(calc(-50% - (var(--positionY) - 7) * -50px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
 }
 .happy-birthday:nth-child(14) {
-  font-size: 230px;
+  font-size: 144px;
   animation-delay: -3.9s;
   opacity: 0.85;
   transform: translateX(calc(-50% - (var(--positionX) - 7) * -60px)) translateY(calc(-50% - (var(--positionY) - 7) * -60px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
 }
 .happy-birthday:nth-child(15) {
-  font-size: 240px;
+  font-size: 152px;
   animation-delay: -4.2s;
   opacity: 0.9;
   transform: translateX(calc(-50% - (var(--positionX) - 7) * -70px)) translateY(calc(-50% - (var(--positionY) - 7) * -70px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
 }
 .happy-birthday:nth-child(16) {
-  font-size: 250px;
+  font-size: 160px;
   animation-delay: -4.5s;
   opacity: 0.95;
   transform: translateX(calc(-50% - (var(--positionX) - 7) * -80px)) translateY(calc(-50% - (var(--positionY) - 7) * -80px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
 }
 .happy-birthday:nth-child(17) {
-  font-size: 260px;
+  font-size: 168px;
   animation-delay: -4.8s;
   opacity: 1;
   transform: translateX(calc(-50% - (var(--positionX) - 7) * -90px)) translateY(calc(-50% - (var(--positionY) - 7) * -90px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
 }
 .happy-birthday:nth-child(18) {
-  font-size: 270px;
+  font-size: 176px;
   animation-delay: -5.1s;
   opacity: 1.05;
   transform: translateX(calc(-50% - (var(--positionX) - 7) * -100px)) translateY(calc(-50% - (var(--positionY) - 7) * -100px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
 }
 .happy-birthday:nth-child(19) {
-  font-size: 280px;
+  font-size: 184px;
   animation-delay: -5.4s;
   opacity: 1.1;
   transform: translateX(calc(-50% - (var(--positionX) - 7) * -110px)) translateY(calc(-50% - (var(--positionY) - 7) * -110px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
 }
 .happy-birthday:nth-child(20) {
-  font-size: 290px;
+  font-size: 192px;
   animation-delay: -5.7s;
   opacity: 1.15;
   transform: translateX(calc(-50% - (var(--positionX) - 7) * -120px)) translateY(calc(-50% - (var(--positionY) - 7) * -120px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
 }
 .happy-birthday:nth-child(21) {
-  font-size: 300px;
+  font-size: 200px;
   animation-delay: -6s;
   opacity: 1.2;
   transform: translateX(calc(-50% - (var(--positionX) - 7) * -130px)) translateY(calc(-50% - (var(--positionY) - 7) * -130px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
 }
 .happy-birthday:nth-child(22) {
-  font-size: 310px;
+  font-size: 208px;
   animation-delay: -6.3s;
   opacity: 1.25;
   transform: translateX(calc(-50% - (var(--positionX) - 7) * -140px)) translateY(calc(-50% - (var(--positionY) - 7) * -140px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
 }
 .happy-birthday:nth-child(23) {
-  font-size: 320px;
+  font-size: 216px;
   animation-delay: -6.6s;
   opacity: 1.3;
   transform: translateX(calc(-50% - (var(--positionX) - 7) * -150px)) translateY(calc(-50% - (var(--positionY) - 7) * -150px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
 }
 .happy-birthday:nth-child(24) {
-  font-size: 330px;
+  font-size: 224px;
   animation-delay: -6.9s;
   opacity: 1.35;
   transform: translateX(calc(-50% - (var(--positionX) - 7) * -160px)) translateY(calc(-50% - (var(--positionY) - 7) * -160px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
 }
 .happy-birthday.box-18 {
+  --step-one-color: #08f;
+  --step-two-color: #f03;
   width: 400px;
   aspect-ratio: 1;
+  color: white;
   display: grid;
   place-content: center;
-  color: white;
   text-shadow: 0 1px 0 #000;
   --border-angle: 0turn;
-  --main-bg: conic-gradient(
-  		from var(--border-angle),
-  		#213,
-  		rgba(17, 17, 34, 0.386) 5%,
-  		rgba(17, 17, 34, 0.233) 60%,
-  		rgba(34, 17, 51, 0.189) 95%
-  	);
   border: solid 5px transparent;
   border-radius: 2em;
-  --gradient-border: conic-gradient(from var(--border-angle), transparent 25%, #08f, #f03 99%, transparent);
-  background: var(--main-bg) padding-box, var(--gradient-border) border-box;
+  background: conic-gradient(from var(--border-angle), transparent 25%, var(--step-one-color), var(--step-two-color) 99%, transparent) border-box;
   background-position: center center;
-  animation: bg-spin 3s linear infinite;
+  animation: bg-spin var(--animation-time) linear infinite;
+  transition: --step-one-color 4s, --step-two-color 4s, --animation-time 4s;
+}
+.happy-birthday.box-18::before {
+  content: "";
+  width: 400px;
+  aspect-ratio: 1;
+  position: absolute;
+  background: conic-gradient(from var(--border-angle), transparent 25%, #08f, #f03 99%, transparent);
+  border-radius: 50%;
+  mask: radial-gradient(transparent 66%, black 70%);
+  left: -5px;
+  top: -5px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.happy-birthday.box-18.no-gradient-border {
+  --step-one-color: #0000;
+  --step-two-color: #0000;
+}
+.happy-birthday.box-18.onbefore-gradient-border::before {
+  content: "";
+  opacity: 1;
 }
 @keyframes bg-spin {
   to {
@@ -387,6 +403,21 @@ footer {
   syntax: "<angle>";
   inherits: true;
   initial-value: 0turn;
+}
+@property --step-one-color {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #000;
+}
+@property --step-two-color {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #000;
+}
+@property --animation-time {
+  syntax: "<time>";
+  inherits: true;
+  initial-value: 10s;
 }
 @media (max-width: 500px) {
   footer {

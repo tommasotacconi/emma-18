@@ -1,3 +1,4 @@
+@use 'sass:list' as *;
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
 // Css reset
@@ -56,8 +57,6 @@ footer {
 	align-items: center;
 }
 
-
-
 .happy-birthday {
 	font-family: 'Fredoka One', cursive;
 	position: absolute;
@@ -68,7 +67,7 @@ footer {
 	
 	@for $i from 0 to 24 {
 		&:nth-child(#{$i + 1}) {
-			font-size: #{100 + $i * 10}px;
+			font-size: #{40 + $i * 8}px;
 			animation-delay: #{$i * -0.3}s;
 			opacity: #{0.2 + $i * 0.05};
 			transform:
@@ -80,38 +79,72 @@ footer {
 	}
 		
 	&.box-18 {
+		$lightblue: #08f;
+		$red: #f03;
+		--step-one-color: #{$lightblue};
+		--step-two-color: #{$red};
+		
+		@function con-grad($c1, $c2, $from-angle: var(--border-angle)) {
+			@return conic-gradient(
+				from $from-angle,
+				transparent 25%,
+				#{$c1}, 
+				#{$c2} 99%,
+				transparent
+			);
+		}
+
 		width: 400px;
 		aspect-ratio: 1;
+		color: white;
 		display: grid;
 		place-content: center;
-		color: white;
 		text-shadow: 0 1px 0 #000;
-		
 		--border-angle: 0turn; // For animation.
-		--main-bg: conic-gradient(
-				from var(--border-angle),
-				#213,
-				rgba(17, 17, 34, 0.386) 5%,
-				rgba(17, 17, 34, 0.233) 60%,
-				rgba(34, 17, 51, 0.189) 95%
-			);
-
 		border: solid 5px transparent;
 		border-radius: 2em;
-		--gradient-border: conic-gradient(from var(--border-angle), transparent 25%, #08f, #f03 99%, transparent);
 
 		background: 
 			// padding-box clip this background in to the overall element except the border.
-			var(--main-bg) padding-box,
+			// conic-gradient(from var(--border-angle), #213, rgba(17, 17, 34, 0.386) 5%,
+			// 	rgba(17, 17, 34, 0.233) 60%,
+			// 	rgba(34, 17, 51, 0.189) 95%
+			// ) padding-box,
 			// border-box extends this background to the border space
-			var(--gradient-border) border-box;
+			#{con-grad(var(--step-one-color), var(--step-two-color))} border-box;
 			// Duplicate main background to fill in behind the gradient border. You can remove this if you want the border to extend "outside" the box background.
 			// var(--main-bg) border-box;
 
 		background-position: center center;
+		animation: bg-spin var(--animation-time) linear infinite;
+		$tran-time: 4s;
+		transition: --step-one-color $tran-time, --step-two-color $tran-time, --animation-time $tran-time;
 
-		animation: bg-spin 3s linear infinite;
 
+		&::before {
+			content: '';
+			width: 400px;
+			aspect-ratio: 1;
+			position: absolute;
+			background: #{con-grad($lightblue, $red)};
+			border-radius: 50%;
+			mask: radial-gradient(transparent 66%, black 70%);
+			left: -5px;
+			top: -5px;
+			opacity: 0;
+			transition: opacity 0.2s;
+		}
+
+		&.no-gradient-border {
+			--step-one-color: #0000;
+			--step-two-color: #0000;
+		}
+
+		&.onbefore-gradient-border::before {
+			content: '';
+			opacity: 1;
+		}
+		
 		@keyframes bg-spin {
 			to {
 				--border-angle: 1turn;
@@ -130,10 +163,19 @@ footer {
 	}
 }
 
-@property --border-angle {
-	syntax: "<angle>";
-	inherits: true;
-	initial-value: 0turn;
+$cust-props: (
+	'border-angle': ('angle', 'true', '0turn'),
+	'step-one-color': ('color', 'false', '#000'),
+	'step-two-color': ('color', 'false', '#000'),
+	'animation-time': ('time', 'true', '10s')
+);
+
+@each $property, $details in $cust-props {
+	@property --#{$property} {
+		syntax: "<#{nth($details, 1)}>";
+		inherits: #{nth($details, 2)};
+		initial-value: #{nth($details, 3)};
+	}
 }
 
 @media (max-width: 500px) {
