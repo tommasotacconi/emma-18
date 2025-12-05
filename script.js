@@ -1,8 +1,12 @@
-/* Retrieve DOM elementS */
 const body = document.body;
+// Prepare cells for mapping mouse position
 const bodyInHTML = body.innerHTML;
+<<<<<<< HEAD
 
 /* Prepare cells for mapping mouse position */
+=======
+const documentEl = document.documentElement;
+>>>>>>> parent of 2e1390f (refactor: Comment logic)
 body.innerHTML = '';
 
 for (let i = 0; i < 250; i++) {
