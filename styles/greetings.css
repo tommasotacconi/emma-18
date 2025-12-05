@@ -317,7 +317,7 @@ footer {
   opacity: 1.35;
   transform: translateX(calc(-50% - (var(--positionX) - 7) * -160px)) translateY(calc(-50% - (var(--positionY) - 7) * -160px)) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
 }
-.happy-birthday.box-18 {
+.happy-birthday.had-age-box {
   --step-one-color: #08f;
   --step-two-color: #f03;
   width: 400px;
@@ -334,7 +334,7 @@ footer {
   animation: bg-spin var(--animation-time) linear infinite;
   transition: --step-one-color 4s, --step-two-color 4s, --animation-time 4s;
 }
-.happy-birthday.box-18::before {
+.happy-birthday.had-age-box::before {
   content: "";
   width: 400px;
   aspect-ratio: 1;
@@ -347,11 +347,11 @@ footer {
   opacity: 0;
   transition: opacity 0.2s;
 }
-.happy-birthday.box-18.no-gradient-border {
+.happy-birthday.had-age-box.no-gradient-border {
   --step-one-color: #0000;
   --step-two-color: #0000;
 }
-.happy-birthday.box-18.onbefore-gradient-border::before {
+.happy-birthday.had-age-box.onbefore-gradient-border::before {
   content: "";
   opacity: 1;
 }
@@ -360,7 +360,7 @@ footer {
     --border-angle: 1turn;
   }
 }
-.happy-birthday.box-18:hover {
+.happy-birthday.had-age-box:hover {
   animation-play-state: paused;
 }
 @keyframes color {
@@ -419,6 +419,23 @@ footer {
   inherits: true;
   initial-value: 10s;
 }
+.firework,
+.firework::after,
+.firework::before {
+  --initial-size: 200px;
+  --final-size: 500px;
+  --x: 50%;
+  --y: 50%;
+  background: linear-gradient(circle, var(--color) var(--initial-size), 50% 50%);
+  width: 200px;
+  aspect-ratio: 1;
+  position: absolute;
+  content: "";
+  left: 30%;
+  top: 50%;
+}
+
+/* Media queries */
 @media (max-width: 500px) {
   footer {
     font-size: 0.8rem;
@@ -495,7 +512,7 @@ footer {
   .happy-birthday:nth-child(24) {
     font-size: 66px;
   }
-  .happy-birthday.box-18 {
+  .happy-birthday.had-age-box {
     width: 150px;
   }
 }

@@ -78,7 +78,7 @@ footer {
 		}
 	}
 		
-	&.box-18 {
+	&.had-age-box {
 		$lightblue: #08f;
 		$red: #f03;
 		--step-one-color: #{$lightblue};
@@ -178,6 +178,24 @@ $cust-props: (
 	}
 }
 
+.firework,
+.firework::after,
+.firework::before {
+	--initial-size: 200px;
+	--final-size: 500px;
+	--x: 50%;
+	--y: 50%;
+	background:
+		linear-gradient(circle, var(--color) var(--initial-size), 50% 50%);
+	width: 200px;
+	aspect-ratio: 1;
+	position: absolute;
+	content: '';
+	left: 30%;
+	top: 50%;
+}
+
+/* Media queries */
 @media (max-width: 500px) {
 	footer {
 		font-size: .8rem;
@@ -190,7 +208,7 @@ $cust-props: (
 			}
 		}
 
-		&.box-18 {
+		&.had-age-box {
 			width: 150px;
 		}
 	}
