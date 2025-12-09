@@ -1,4 +1,5 @@
 @use 'sass:list' as *;
+@use 'sass:string' as str;
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
 // Css reset
@@ -29,6 +30,35 @@ footer {
 }
 
 // Utility
+/* From Uiverse.io by gharsh11032000 */ 
+button#celebrate {
+	padding: 15px 20px;
+	font-size: 16px;
+	font-weight: 600;
+	border: 2px solid #414141;
+	color: white;
+	background-color: transparent;
+	cursor: pointer;
+	border-radius: 10px;
+	text-transform: uppercase;
+	transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	translate: -50% -50%;
+	z-index: 3;
+
+	&:hover {
+		border-color: #0974f1;
+		box-shadow: 0 0 20px rgba(9, 117, 241, 0.8);
+	}
+
+	&:active {
+		box-shadow: 0 0 10px rgba(9, 117, 241, 0.4);
+	}
+}
+
 .cell {
 	width: 100%;
 	height: 100%;
@@ -181,18 +211,106 @@ $cust-props: (
 .firework,
 .firework::after,
 .firework::before {
-	--initial-size: 200px;
-	--final-size: 500px;
-	--x: 50%;
-	--y: 50%;
-	background:
-		linear-gradient(circle, var(--color) var(--initial-size), 50% 50%);
-	width: 200px;
-	aspect-ratio: 1;
-	position: absolute;
+	// border: solid 1px white;
+	--particle-radius: 0.2vh;
+	--explosion-size: 250px;
+	--explosion-duration: 4s;
+	--x: -50%;
+	--y: -50%;
+	--initialY: 100vh;
+	$bg-size: calc(var(--particle-radius) * 2);
 	content: '';
-	left: 30%;
+	position: absolute;
 	top: 50%;
+	left: 50%;
+	/* animation */
+	animation-duration: var(--explosion-duration);
+	animation-delay: var(--explosion-delay);
+	animation-iteration-count: infinite;
+	animation-fill-mode: both;
+	/* --- */
+	transform: translate(-50%, -50%);
+	width: var(--particle-radius);
+	aspect-ratio: 1;
+	
+	@function get-radial-grads($positions) {
+		$bg-images: '';
+		@each $pos in $positions {
+			$last-loop: length($positions) == index($positions, $pos);
+			$bg-images: str.insert($bg-images, 'radial-gradient(circle closest-side, var(--color) var(--particle-radius), #000 1px) #{$pos} no-repeat#{if($last-loop, '', ', ')}', -1);
+		}
+		
+		@return unquote($bg-images);
+	}
+	background: get-radial-grads((
+		'10% 10%',
+		'10% 20%',
+		'20% 10%',
+		'20% 12.5%',
+		'80% 10%',
+		'80% 20%',
+		'90% 12.5%',
+		'90% 10.5%',
+		'90% 80%',
+		'90% 82.5%',
+		'80% 90%',
+		'80% 80%',
+		'20% 80%',
+		'10% 82.5%',
+		'10% 90%',
+		'20% 90%',
+		));
+	background-size: $bg-size $bg-size;
+}
+
+.firework {
+	opacity: 0;
+	--explosion-delay: 0s;
+
+	&.animate {
+		animation-name: explosion, exp-dissolve;
+
+		&::after,
+		&::before {
+			animation-name: explosion;
+		}
+	}
+
+}
+
+.firework::after {
+	--x: -50%;
+	--y: -50%;
+	--initialY: -50%;
+	transform: translate(-50%, -50%) rotate(-30deg);
+}
+
+.firework::before {
+	--x: -50%;
+	--y: -50%;
+	--initialY: -50%;
+	transform: translate(-50%, -50%) rotate(30deg);
+}
+
+@keyframes explosion {
+	from {
+		transform: translate(var(--x), var(--initialY));
+	}
+	60% {
+		width: var(--particle-radius);
+	}
+	to {
+		width: var(--explosion-size);
+	}
+}
+
+@keyframes exp-dissolve {
+	3% {
+		opacity: 1;
+	}
+	60% {
+		opacity: 1;
+	}
 }
 
 /* Media queries */
