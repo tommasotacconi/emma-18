@@ -476,7 +476,7 @@ button#celebrate:active {
   --explosion-delay: 0s;
 }
 .firework.animate {
-  animation-name: explosion, exp-dissolve;
+  animation-name: explosion-with-dissolve;
 }
 .firework.animate::after, .firework.animate::before {
   animation-name: explosion;
@@ -507,12 +507,17 @@ button#celebrate:active {
     width: var(--explosion-size);
   }
 }
-@keyframes exp-dissolve {
-  3% {
+@keyframes explosion-with-dissolve {
+  from {
+    transform: translate(var(--x), var(--initialY));
     opacity: 1;
   }
   60% {
+    width: var(--particle-radius);
     opacity: 1;
+  }
+  to {
+    width: var(--explosion-size);
   }
 }
 /* Media queries */
