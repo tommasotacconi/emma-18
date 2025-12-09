@@ -292,26 +292,22 @@ $cust-props: (
 	transform: translate(-50%, -50%) rotate(30deg);
 }
 
-@mixin explosion-animations {
-	$dissolve-options: false true;
-	@each $opt in $dissolve-options {
-		@keyframes explosion#{if($opt, -with-dissolve, null)} {
-			from {
-				transform: translate(var(--x), var(--initialY));
-				opacity: if($opt, 1, null);
-			}
-			60% {
-				width: var(--particle-radius);
-				opacity: if($opt, 1, null);
-			}
-			to {
-				width: var(--explosion-size);
-			}
+$use-dissolve-options: false true;
+@each $opt in $use-dissolve-options {
+	@keyframes explosion#{if($opt, -with-dissolve, null)} {
+		from {
+			transform: translate(var(--x), var(--initialY));
+			opacity: if($opt, 1, null);
 		}
-	} 
+		60% {
+			width: var(--particle-radius);
+			opacity: if($opt, 1, null);
+		}
+		to {
+			width: var(--explosion-size);
+		}
+	}
 } 
-
-@include explosion-animations;
 
 /* Media queries */
 @media (max-width: 500px) {
