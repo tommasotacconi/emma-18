@@ -1,4 +1,5 @@
 @use 'sass:list' as *;
+@use 'sass:meta' as *;
 @use 'sass:string' as str;
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
@@ -197,7 +198,8 @@ $cust-props: (
 	'border-angle': ('angle', 'true', '0turn'),
 	'step-one-color': ('color', 'false', '#000'),
 	'step-two-color': ('color', 'false', '#000'),
-	'animation-time': ('time', 'true', '10s')
+	'animation-time': ('time', 'true', '10s'),
+	'y-displacement': ('percentage', 'true', '0%')
 );
 
 @each $property, $details in $cust-props {
@@ -208,17 +210,61 @@ $cust-props: (
 	}
 }
 
+// Postions of bg for .firework selectors and children 
+$bg-pos: (
+	10 10,
+	10 20,
+	20 10,
+	20 12.5,
+	80 10,
+	80 20,
+	90 12.5,
+	90 10.5,
+	90 80,
+	90 90,
+	80 90,
+	80 80,
+	20 80,
+	10 82.5,
+	10 90,
+	20 90,
+);
+// Generate a dispersion of points that is mostly circular that resembles to a firework
+@function get-radial-grads($positions, $is-falling: false) {
+	$bg-images: '';
+	@each $x-pos, $y-pos in $positions {
+		// Before changing $x-pos and $y-pos for necessity control if last iteration
+		$is-last-loop: length($positions) == index($positions, ($x-pos $y-pos));
+		// Prepare background for falling animation option
+		$reduc: 0.6;
+		@if $is-falling and $y-pos >= 90 {
+			$x-pos: if($x-pos > 50, 50 + ($x-pos - 50) * $reduc, 50 - (50 - $x-pos) * $reduc);
+			$y-pos: 50 + ($y-pos - 50) * $reduc + '%';
+		} @else if $is-falling and $y-pos < 90 {
+			$y-pos: 'calc(#{$y-pos}% + var(--y-displacement))';
+		} @else {
+			$y-pos: '#{$y-pos}%';
+		}
+		$r-gradient: 'radial-gradient(circle closest-side, var(--color) var(--particle-radius), #000 1px) #{$x-pos}% #{$y-pos}';
+		$bg-images: str.insert(
+			$bg-images,
+			"\0d\0a\9\9#{$r-gradient} no-repeat#{if($is-last-loop, '', ',')}", -1
+			);
+	}
+	
+	@return str.unquote($bg-images);
+}
+// Used in next two complex selectors
+$bg-size: calc(var(--particle-radius) * 2);
+
 .firework,
 .firework::after,
 .firework::before {
 	// border: solid 1px white;
 	--particle-radius: 0.2vh;
-	--explosion-size: 250px;
-	--explosion-duration: 4s;
 	--x: -50%;
 	--y: -50%;
 	--initialY: 100vh;
-	$bg-size: calc(var(--particle-radius) * 2);
 	content: '';
 	position: absolute;
 	top: 50%;
@@ -227,55 +273,55 @@ $cust-props: (
 	animation-duration: var(--explosion-duration);
 	animation-delay: var(--explosion-delay);
 	animation-iteration-count: infinite;
-	animation-fill-mode: both;
 	/* --- */
 	transform: translate(-50%, -50%);
 	width: var(--particle-radius);
 	aspect-ratio: 1;
-	
-	@function get-radial-grads($positions) {
-		$bg-images: '';
-		@each $pos in $positions {
-			$last-loop: length($positions) == index($positions, $pos);
-			$bg-images: str.insert($bg-images, 'radial-gradient(circle closest-side, var(--color) var(--particle-radius), #000 1px) #{$pos} no-repeat#{if($last-loop, '', ', ')}', -1);
-		}
-		
-		@return unquote($bg-images);
-	}
-	background: get-radial-grads((
-		'10% 10%',
-		'10% 20%',
-		'20% 10%',
-		'20% 12.5%',
-		'80% 10%',
-		'80% 20%',
-		'90% 12.5%',
-		'90% 10.5%',
-		'90% 80%',
-		'90% 82.5%',
-		'80% 90%',
-		'80% 80%',
-		'20% 80%',
-		'10% 82.5%',
-		'10% 90%',
-		'20% 90%',
-		));
+	background: get-radial-grads($bg-pos);
 	background-size: $bg-size $bg-size;
 }
 
 .firework {
 	opacity: 0;
 	--explosion-delay: 0s;
+	--explosion-size: 250px; 
+	--explosion-duration: 4s;
+	
+	@function firework-animations($is-falling: false) {
+		$names: explosion-with-dissolve, if($is-falling, falling-effect, null);
+		
+		@return $names;
+	}
+	
+	&.falling {
+		--explosion-size: 500px;
+		
+		&,
+		&::before,
+		&::after {
+			$mapped-bg-pos: ();
+			@each $x-pos, $y-pos in $bg-pos {
+				$i: index($bg-pos, $x-pos $y-pos);
+				@debug $i;
+				$mapped-bg-pos: if(sass($y-pos < 80 or $y-pos >= 90): append($mapped-bg-pos, $x-pos $y-pos); else: $mapped-bg-pos);
+			}
+			background: get-radial-grads($mapped-bg-pos, true);
+			background-size: $bg-size $bg-size
+		}
+	} 
 
 	&.animate {
-		animation-name: explosion-with-dissolve;
-
+		animation-name: firework-animations();
+		
 		&::after,
 		&::before {
 			animation-name: explosion;
 		}
-	}
 
+		&.falling {
+			animation-name: firework-animations(true);
+		}
+	}
 }
 
 .firework::after {
@@ -292,6 +338,7 @@ $cust-props: (
 	transform: translate(-50%, -50%) rotate(30deg);
 }
 
+/* Animations definitions */
 $use-dissolve-options: false true;
 @each $opt in $use-dissolve-options {
 	@keyframes explosion#{if($opt, -with-dissolve, null)} {
@@ -307,7 +354,16 @@ $use-dissolve-options: false true;
 			width: var(--explosion-size);
 		}
 	}
-} 
+}
+
+@keyframes falling-effect {
+	60% {
+		--y-displacement: 0%;
+	}
+	to {
+		--y-displacement: 50%;
+	}
+}
 
 /* Media queries */
 @media (max-width: 500px) {

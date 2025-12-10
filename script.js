@@ -22,7 +22,7 @@ function getRandInt(max = 100, min) {
 */
 function prepareFireworks(...packs) {
     let fireworkEls = [];
-    packs.forEach(({ num, color = 'white', exploCoor = []}) => {
+    packs.forEach(({ num, color = 'white', exploCoor = [], type }) => {
         // Generate random positions if not specified
         if (!exploCoor.toString()) {
             for (let i = 0; i < num; i++) {
@@ -39,10 +39,12 @@ function prepareFireworks(...packs) {
         for (let i = 0; i < num; i++) {
             const fireworkEl = document.createElement('div');
             fireworkEl.classList.add('firework', 'fw' + i);
+            if (type) fireworkEl.classList.add(type);
             fireworkEl.style.setProperty('--color', color);
             fireworkEl.style.setProperty('left', exploCoor[i]?.[0]);
             fireworkEl.style.setProperty('top', exploCoor[i]?.[1]);
             fireworkEl.style.setProperty('--initialY', 100 - exploCoor[i]?.[1].slice(0, -1) + 'vh');
+            fireworkEl.style.setProperty('--explosion-duration', getRandInt(6, 3) + 's')
             fireworkEl.style.setProperty('--explosion-delay', i < 2 ? '0s' : getRandInt(0, 8) + 's');
             const displacementSign = i < num / 2 ? '+' : '-';
             fireworkEl.style.setProperty('--x',  displacementSign + getRandInt(5) + 'vw');
@@ -119,8 +121,9 @@ for (let i = 0; i < 250; i++) {
 body.append(...prepareFireworks(
     { num: 3 },
     { num: 5, color: 'slateblue' },
-    { num: 2, color: 'orange'},
-    { num: 5, color: 'yellow'}
+    { num: 2, color: 'orange' },
+    { num: 5, color: 'yellow' },
+    { num: 3, color: 'magenta', type: 'falling'}
 ));
 
 // Retrieve DOM elements
